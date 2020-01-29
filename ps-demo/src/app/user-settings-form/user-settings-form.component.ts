@@ -15,7 +15,7 @@ export class UserSettingsFormComponent implements OnInit {
     subscriptionType: 'Annual',
     notes: 'here are some notes...'
   };
-  
+
   constructor() { }
 
   ngOnInit() {
