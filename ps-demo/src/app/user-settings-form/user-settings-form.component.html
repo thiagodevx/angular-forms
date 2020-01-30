@@ -1,14 +1,14 @@
 <div class="container">
   <h2>User Settings</h2>
-  <form #form="ngForm">
+  <form #form="ngForm" ngNativeValidate>
 
-    <div class="form-group" ngNativeValidate>
+    <div class="form-group" >
       <label for="name">Name</label>
-      <input [(ngModel)]="userSettings.name" id="name" class="form-control" name="name" type="text" placeholder="Name">
+      <input [(ngModel)]="userSettings.name" id="name" class="form-control" name="name" type="text" placeholder="Name" required>
     </div>
 
     <div class="form-check form-group">
-      <input ngModel id="emailOffers" class="form-check-input" name="emailOffers" type="checkbox">
+      <input ngModel id="emailOffers" class="form-check-input" name="emailOffers" type="checkbox" required>
       <label [(ngModel)]="userSettings.emailOffers" for="emailOffers" class="form-check-label">Email Special Offers</label>
     </div>
 
