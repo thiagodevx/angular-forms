@@ -2,7 +2,7 @@
   <h2>User Settings</h2>
   <form #form="ngForm">
 
-    <div class="form-group">
+    <div class="form-group" ngNativeValidate>
       <label for="name">Name</label>
       <input [(ngModel)]="userSettings.name" id="name" class="form-control" name="name" type="text" placeholder="Name">
     </div>
