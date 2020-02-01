@@ -11,6 +11,7 @@ import { UserSettings } from 'src/app/data/user-settings';
 export class UserSettingsFormComponent implements OnInit {
 
   originalUserSettings: UserSettings = {
+    id: null,
     name: null,
     emailOffers: true,
     interfaceStyle: null,
