@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { DataService } from 'src/app/data/data.service';
 import { UserSettings } from 'src/app/data/user-settings';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-user-settings-form',
@@ -27,7 +28,15 @@ export class UserSettingsFormComponent implements OnInit {
   }
 
   onSubmit(form: NgForm) {
-    this.dataService.postUserSettingsForm(this.userSettings).subscribe( result => console.log(result) , error => console.log(error));
+    this.dataService.postUserSettingsForm(this.userSettings).subscribe( this.success , this.onHttpError );
+  }
+
+  success(userSettings: UserSettings) {
+    console.log(`Saved object with id ${userSettings.id}`);
+  }
+
+  onHttpError(error: HttpErrorResponse) {
+    console.log(`Obtained error: ${error.status}`);
   }
 
 }
