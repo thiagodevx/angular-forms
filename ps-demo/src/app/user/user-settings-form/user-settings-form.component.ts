@@ -3,6 +3,7 @@ import { NgForm } from '@angular/forms';
 import { DataService } from 'src/app/data/data.service';
 import { UserSettings } from 'src/app/data/user-settings';
 import { HttpErrorResponse } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-user-settings-form',
@@ -10,6 +11,10 @@ import { HttpErrorResponse } from '@angular/common/http';
   styleUrls: ['./user-settings-form.component.css']
 })
 export class UserSettingsFormComponent implements OnInit {
+
+  postError = false;
+  postErrorMessage: string;
+  subscriptionTypes: Observable<string[]>;
 
   originalUserSettings: UserSettings = {
     id: null,
@@ -25,18 +30,24 @@ export class UserSettingsFormComponent implements OnInit {
   constructor(private dataService: DataService) { }
 
   ngOnInit() {
+    this.subscriptionTypes = this.dataService.getSubscriptionTypes();
   }
 
   onSubmit(form: NgForm) {
-    this.dataService.postUserSettingsForm(this.userSettings).subscribe( this.success , this.onHttpError );
+    this.postError = false;
+    if (form.invalid) {
+      this.postError = true;
+      this.postErrorMessage = 'Please fix the errors in the form';
+      return;
+    }
+    this.dataService.postUserSettingsForm(this.userSettings).subscribe( object => this.success(object) , error => this.onHttpError(error) );
   }
 
   success(userSettings: UserSettings) {
-    console.log(`Saved object with id ${userSettings.id}`);
   }
 
   onHttpError(error: HttpErrorResponse) {
-    console.log(`Obtained error: ${error.status}`);
+    this.postError = true;
+    this.postErrorMessage = `Failed to save the user settings, obtained an ${error.status} status code`;
   }
-
 }

@@ -10,6 +10,11 @@ export class DataService {
 
   constructor(private http: HttpClient) { }
 
+  getSubscriptionTypes(): Observable<string[]> {
+    const url = 'https://putsreq.com/hv72glHjjJLJQthx7MK5';
+    return this.http.get<string[]>(`${url}`);
+  }
+
   postUserSettingsForm(userSettings: UserSettings): Observable<UserSettings> {
     const url = 'https://putsreq.com/Ve7V7LIoS0YRXRyXJxkb';
     return this.http.post<UserSettings>(`${url}`, userSettings);
