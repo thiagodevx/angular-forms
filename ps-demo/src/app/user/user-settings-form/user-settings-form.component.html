@@ -11,7 +11,7 @@
         <div [hidden]="!form.submitted || nameField.valid" class="alert alert-danger">Enter a name</div>
     </div>
 
-    <button class="btn btn-primary" [(ngModel)]="toggle" name="toggle" btnCheckbox btnCheckboxTrue="On" btnCheckboxFalse="Off">
+    <button class="btn btn-primary" type="button" [(ngModel)]="toggle" name="toggle" btnCheckbox btnCheckboxTrue="On" btnCheckboxFalse="Off">
       {{toggle}}
     </button>
 
@@ -21,24 +21,15 @@
     </div>
 
     <p>User Interface Style</p>
+
     <div class="form-group">
-      <div class="form-check">
-        <input [(ngModel)]="userSettings.interfaceStyle" class="form-check-input" type="radio" name="interfaceStyle" id="lightInterface" value="light" checked>
-        <label class="form-check-label" for="lightInterface">
-          Light
-        </label>
-      </div>
-      <div class="form-check">
-        <input [(ngModel)]="userSettings.interfaceStyle" class="form-check-input" type="radio" name="interfaceStyle" id="mediumInterface" value="medium">
-        <label class="form-check-label" for="mediumInterface">
-          Medium
-        </label>
-      </div>
-      <div class="form-check">
-        <input [(ngModel)]="userSettings.interfaceStyle" class="form-check-input" type="radio" name="interfaceStyle" id="darkInterface" value="dark">
-        <label class="form-check-label" for="darkInterface">
-          Dark
-        </label>
+      <div class="btn-group">
+        <label [(ngModel)]="userSettings.interfaceStyle" name="interfaceStyle"
+          btnRadio="Light" tabindex="0" role="button" class="btn btn-primary">Light</label>
+        <label [(ngModel)]="userSettings.interfaceStyle" name="interfaceStyle"
+          btnRadio="Medium" tabindex="0" role="button" class="btn btn-primary">Medium</label>
+        <label [(ngModel)]="userSettings.interfaceStyle" name="interfaceStyle"
+          btnRadio="Dark" tabindex="0" role="button" class="btn btn-primary">Dark</label>
       </div>
     </div>
 
@@ -57,7 +48,7 @@
     <div [hidden]="!postError" class="alert alert-danger">
       {{postErrorMessage}}
     </div>
-    <button class="btn btn-primary">Send</button>
+    <button type="submit" class="btn btn-primary">Send</button>
 
   </form>
 </div>
