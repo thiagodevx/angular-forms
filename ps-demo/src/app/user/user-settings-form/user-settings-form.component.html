@@ -15,6 +15,11 @@
       {{toggle}}
     </button>
 
+    <div class="form-group">
+      <label for="startDate">Start Date</label>
+      <input type="text" placeholder="Start Date" class="form-control" [(ngModel)]="startDate" name="startDate" id="startDate" bsDaterangepicker>
+    </div>
+
     <div class="form-check form-group">
       <input [(ngModel)]="userSettings.emailOffers" id="emailOffers" class="form-check-input" name="emailOffers" type="checkbox" required>
       <label for="emailOffers" class="form-check-label">Email Special Offers</label>

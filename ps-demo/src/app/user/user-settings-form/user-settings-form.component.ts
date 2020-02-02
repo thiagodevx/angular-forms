@@ -16,6 +16,7 @@ export class UserSettingsFormComponent implements OnInit {
   postErrorMessage: string;
   subscriptionTypes: Observable<string[]>;
   toggle: string;
+  startDate: string;
 
   originalUserSettings: UserSettings = {
     id: null,
