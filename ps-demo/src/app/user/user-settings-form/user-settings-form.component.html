@@ -25,7 +25,11 @@
       <timepicker [(ngModel)]="startTime" name="startTime" id="startTime"></timepicker>
     </div>
 
-    Start Time: {{ startTime }}
+    <div class="form-group">
+      User Rating
+      <rating [(ngModel)]="rating" [max]="10" name="rating" id="rating"></rating>
+    </div>
+    User Rating: {{ rating }}
 
     <div class="form-check form-group">
       <input [(ngModel)]="userSettings.emailOffers" id="emailOffers" class="form-check-input" name="emailOffers" type="checkbox" required>

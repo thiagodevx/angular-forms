@@ -18,6 +18,7 @@ export class UserSettingsFormComponent implements OnInit {
   toggle: string;
   startDate: Date;
   startTime: Date;
+  rating: number;
 
   originalUserSettings: UserSettings = {
     id: null,
