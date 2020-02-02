@@ -16,7 +16,8 @@ export class UserSettingsFormComponent implements OnInit {
   postErrorMessage: string;
   subscriptionTypes: Observable<string[]>;
   toggle: string;
-  startDate: string;
+  startDate: Date;
+  startTime: Date;
 
   originalUserSettings: UserSettings = {
     id: null,
@@ -34,6 +35,8 @@ export class UserSettingsFormComponent implements OnInit {
   ngOnInit() {
     this.subscriptionTypes = this.dataService.getSubscriptionTypes();
     this.toggle = 'On';
+    this.startTime = new Date();
+    this.startDate = new Date();
   }
 
   onSubmit(form: NgForm) {

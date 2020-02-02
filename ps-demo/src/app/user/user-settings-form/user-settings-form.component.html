@@ -20,6 +20,13 @@
       <input type="text" placeholder="Start Date" class="form-control" [(ngModel)]="startDate" name="startDate" id="startDate" bsDaterangepicker>
     </div>
 
+    <div class="form-group">
+      <label for="startTime">StartTime</label>
+      <timepicker [(ngModel)]="startTime" name="startTime" id="startTime"></timepicker>
+    </div>
+
+    Start Time: {{ startTime }}
+
     <div class="form-check form-group">
       <input [(ngModel)]="userSettings.emailOffers" id="emailOffers" class="form-check-input" name="emailOffers" type="checkbox" required>
       <label for="emailOffers" class="form-check-label">Email Special Offers</label>
